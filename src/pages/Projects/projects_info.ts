@@ -15,7 +15,7 @@ export const projectsInfo = [
     deployLink: 'http://foet.netlify.app/',
     techStackUsed: 'React, React-Bootstrap',
     imageLink:
-      'https://res.cloudinary.com/arjundubeycr/image/upload/v1623351191/foet-netlify-app-1024x768desktop-b5db4a_zz7ufh.png',
+      'https://res.cloudinary.com/arjundubeycr/image/upload/v1624044385/foet-netlify-app-1024x768desktop-b5db4a_ncvoxo.png',
   },
   {
     name: 'TnPC Website',
