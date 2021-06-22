@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image } from "@chakra-ui/image";
 import { SimpleGrid } from "@chakra-ui/layout";
 import { Heading } from "@chakra-ui/layout";
@@ -10,18 +10,25 @@ import ProjectModal from "./ProjectModal";
 import { useDisclosure } from "@chakra-ui/react";
 const Projects = () => {
   const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)");
-
+  const [content, setContent] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Container maxW="container.xl" paddingTop={4}>
       <Heading p={3}>My Projects</Heading>
-      <ProjectModal isOpen={isOpen} onClose={onClose} />
+      <ProjectModal isOpen={isOpen} onClose={onClose} content={content} />
       <SimpleGrid
         spacing={isNotSmallerScreen ? "30px" : "10px"}
         minChildWidth="250px"
       >
         {projectsInfo.map((val) => (
-          <Box borderColor="blackAlpha.800" borderWidth="2px" onClick={onOpen}>
+          <Box
+            borderColor="blackAlpha.800"
+            borderWidth="2px"
+            onClick={() => {
+              onOpen();
+              setContent(val);
+            }}
+          >
             <Image src={val.imageLink} alt="itsoka" />
             <Box borderWidth="2px" borderTopColor="blackAlpha.800">
               {val.name} <br />

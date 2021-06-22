@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -8,21 +8,32 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  useDisclosure,
+  Image,
+  Link,
 } from "@chakra-ui/react";
-const ProjectModal = ({ isOpen, onClose }) => {
+const ProjectModal = (props: any) => {
+  const { isOpen, onClose, content } = props;
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Modal Title</ModalHeader>
+        <ModalHeader>{content.name}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody></ModalBody>
+        <ModalBody>
+          <Image src={content.imageLink} />
+          {content.description}
+        </ModalBody>
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
+          <Button
+            as="a"
+            href="https://github.com/arjundubey-cr/tnpw"
+            colorScheme="gray"
+            mr={3}
+          >
+            View on Github
           </Button>
-          <Button variant="ghost">Secondary Action</Button>
+          <Button colorScheme="facebook">Open Website</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
